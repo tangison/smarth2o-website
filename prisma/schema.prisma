@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Enquiries submitted through the website contact form
+model Enquiry {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  phone        String?
+  organization String?
+  interest     String   // site-assessment | host-machine | general | smart-h2o-active
+  message      String
+  createdAt    DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([interest])
+}
