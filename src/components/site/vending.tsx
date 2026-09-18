@@ -1,131 +1,137 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import {
-  Droplets,
-  Recycle,
-  CreditCard,
-  Factory,
-  ShieldCheck,
-  MonitorPlay,
-  ArrowRight,
-} from "lucide-react";
-import { Reveal, SectionHeading } from "./reveal";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const FEATURES = [
   {
-    icon: Droplets,
-    title: "Purified refill water",
-    description:
-      "Every machine purifies water on-site through a multi-stage treatment process, so customers enjoy clean, great-tasting refill water at the point of use.",
+    id: "purification",
+    title: "Purified on site",
+    body: "Multi-stage treatment runs inside the unit, on a set service and sampling schedule.",
   },
   {
-    icon: Recycle,
-    title: "Reusable containers",
-    description:
-      "Customers refill their own reusable bottles and containers. That means fewer single-use plastics on campus, in wards and around the workplace.",
+    id: "reusable",
+    title: "Bring your own bottle",
+    body: "Customers refill reusable containers at the machine. Fewer single-use plastics, no crates to store.",
   },
   {
-    icon: CreditCard,
-    title: "Cashless or prepaid access",
-    description:
-      "Where available, machines accept cashless or prepaid payment, making hydration simple and secure for institutions and their visitors.",
+    id: "payment",
+    title: "Cashless or prepaid",
+    body: "Where the host site supports it. No float to manage, no coins to collect.",
   },
   {
-    icon: Factory,
-    title: "High-capacity machines",
-    description:
-      "Built for institutional demand. Our machines are specified to keep up with busy lecture blocks, clinics, factories and public spaces.",
+    id: "capacity",
+    title: "Built for real traffic",
+    body: "High-capacity units for lecture blocks, clinics, factories and public spaces.",
   },
   {
-    icon: ShieldCheck,
-    title: "Spillage control",
-    description:
-      "Thoughtful dispensing design and drip management keep floors dry and safe — important in hospitals, offices and retail environments.",
+    id: "spillage",
+    title: "Spillage under control",
+    body: "Drip management keeps floors dry. In hospitals and retail that is not a nice-to-have.",
   },
   {
-    icon: MonitorPlay,
-    title: "Display-screen advertising",
-    description:
-      "Machines carry a display screen that can show institutional messaging or vetted advertising, turning a utility into a communication asset.",
+    id: "screen",
+    title: "A screen that works",
+    body: "The host institution's messaging comes first. Remaining slots can run approved advertising.",
   },
 ];
 
 export function Vending() {
   return (
-    <section id="solutions" className="py-20 md:py-28 bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Water Vending Solutions"
-          title="Purified water, dispensed smart"
-          description="Smart H₂O machines combine purification, capacity and control in one unit — designed for institutions that need reliable hydration at scale."
-        />
+    <section id="solutions" className="bg-paper">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
+        <h2 className="text-3xl md:text-[2.4rem] leading-[1.12] font-bold tracking-[-0.01em] text-primary">
+          One machine, installed and
+          <br className="hidden sm:block" /> looked&nbsp;after.
+        </h2>
+        <p className="mt-4 max-w-[52ch] text-[0.9375rem] leading-relaxed text-foreground/75">
+          The host provides the location, a water supply and power. Smart H₂O
+          handles installation, servicing and support.
+        </p>
 
-        <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
-          {/* Machine showcase */}
-          <Reveal className="lg:col-span-2 lg:sticky lg:top-28">
-            <div className="relative rounded-2xl bg-gradient-to-b from-accent to-muted p-6 border border-border">
-              <img
-                src="/images/machine-studio.png"
-                alt="Smart H₂O institutional water vending machine with digital display and dispensing station"
-                className="w-full h-auto rounded-xl shadow-lg"
-              />
-              <div className="mt-5 text-center">
-                <p className="text-sm font-semibold text-foreground">
-                  Institutional refill unit
-                </p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Installed, serviced and monitored by Smart H₂O
-                </p>
-              </div>
-            </div>
-          </Reveal>
+        <div className="mt-10 md:mt-14 grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
+          {/* Machine, the central visual */}
+          <figure className="bg-mist rounded-lg p-6 sm:p-10 flex justify-center">
+            <img
+              src="/images/machine-branded.webp"
+              alt="Smart H₂O branded water-refill vending machine with PURE, SAFE, AFFORDABLE and SUSTAINABLE panel"
+              width={619}
+              height={1214}
+              loading="lazy"
+              sizes="(min-width: 1024px) 32vw, 70vw"
+              srcSet="/images/machine-branded-480w.webp 480w, /images/machine-branded-768w.webp 768w, /images/machine-branded.webp 619w"
+              className="w-[min(58vw,300px)] lg:w-auto max-w-[320px] max-h-[300px] sm:max-h-[420px] lg:max-h-[520px] h-auto object-contain"
+            />
+          </figure>
 
-          {/* Feature grid */}
-          <div className="lg:col-span-3 grid sm:grid-cols-2 gap-4 md:gap-5">
-            {FEATURES.map((feature, i) => (
-              <Reveal key={feature.title} delay={0.05 * i}>
-                <Card className="h-full border-border/80 hover:border-teal-300 hover:shadow-md transition-all duration-300">
-                  <CardContent className="p-5 md:p-6">
-                    <div className="inline-flex items-center justify-center h-11 w-11 rounded-lg bg-accent text-teal-700 mb-4">
-                      <feature.icon className="h-5 w-5" aria-hidden="true" />
-                    </div>
-                    <h3 className="text-base md:text-lg font-semibold text-foreground">
-                      {feature.title}
-                    </h3>
-                    <p className="mt-2 text-sm md:text-[0.95rem] leading-relaxed text-muted-foreground">
-                      {feature.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </Reveal>
+          {/* Features as accordion */}
+          <Accordion type="single" collapsible defaultValue="purification" className="w-full">
+            {FEATURES.map((f) => (
+              <AccordionItem key={f.id} value={f.id} className="border-rule">
+                <AccordionTrigger className="text-left text-[0.9375rem] font-semibold text-primary hover:text-accent hover:no-underline py-4">
+                  {f.title}
+                </AccordionTrigger>
+                <AccordionContent className="text-[0.8125rem] leading-relaxed text-foreground/75 pb-5 max-w-[54ch]">
+                  {f.body}
+                </AccordionContent>
+              </AccordionItem>
             ))}
+          </Accordion>
+        </div>
 
-            <Reveal delay={0.3} className="sm:col-span-2">
-              <div className="rounded-xl bg-water-cta p-6 md:p-8 text-white flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
-                <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-bold">
-                    Want a machine at your facility?
-                  </h3>
-                  <p className="mt-2 text-white/85 text-sm md:text-base leading-relaxed">
-                    We assess your site, agree the terms, and handle everything from
-                    installation to ongoing maintenance.
-                  </p>
-                </div>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="secondary"
-                  className="bg-white text-teal-800 hover:bg-teal-50 shrink-0"
-                >
-                  <a href="#contact" data-interest="host-machine">
-                    Get started
-                    <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
-                  </a>
-                </Button>
+        {/* More views, scroll-snap slider */}
+        <div className="mt-14 md:mt-20">
+          <p className="mono-label text-primary">More views</p>
+          <div className="snap-slider mt-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+            <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
+              <div className="bg-mist rounded-lg aspect-[3/4] flex items-center justify-center p-6">
+                <img
+                  src="/images/machine-plain.webp"
+                  alt="Unbranded Smart H₂O refill unit, front view"
+                  width={615}
+                  height={1383}
+                  loading="lazy"
+                  sizes="(min-width: 640px) 280px, 62vw"
+                  srcSet="/images/machine-plain-480w.webp 480w, /images/machine-plain-768w.webp 768w, /images/machine-plain.webp 615w"
+                  className="w-[72%] h-auto"
+                />
               </div>
-            </Reveal>
+              <figcaption className="mono-label mt-2.5 text-steel">
+                Plain unit
+              </figcaption>
+            </figure>
+            <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
+              <div className="rounded-lg overflow-hidden aspect-[3/4]">
+                <img
+                  src="/images/machine-factory.webp"
+                  alt="Branded Smart H₂O refill unit on the factory floor"
+                  width={1280}
+                  height={1707}
+                  loading="lazy"
+                  sizes="(min-width: 640px) 280px, 62vw"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <figcaption className="mono-label mt-2.5 text-steel">
+                Factory floor
+              </figcaption>
+            </figure>
+            <a
+              href="#contact"
+              data-interest="host-machine"
+              className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] lg:flex-1 aspect-[3/4] lg:aspect-auto rounded-lg bg-primary text-white flex flex-col justify-between p-6 hover:bg-foreground transition-colors"
+            >
+              <p className="text-xl md:text-2xl font-bold leading-tight">
+                Want a machine at your facility?
+              </p>
+              <p className="text-sm font-semibold text-accent">
+                Host a machine
+              </p>
+            </a>
           </div>
         </div>
       </div>

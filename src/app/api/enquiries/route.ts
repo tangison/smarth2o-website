@@ -24,6 +24,7 @@ const enquirySchema = z.object({
   interest: z.enum([
     "site-assessment",
     "host-machine",
+    "advertising",
     "general",
     "smart-h2o-active",
   ]),
@@ -65,7 +66,7 @@ export async function POST(request: NextRequest) {
         success: true,
         id: enquiry.id,
         message:
-          "Thank you — your enquiry has been received. Our team will get back to you shortly.",
+          "Thank you, your enquiry has been received. Our team will get back to you shortly.",
       },
       { status: 201 }
     );

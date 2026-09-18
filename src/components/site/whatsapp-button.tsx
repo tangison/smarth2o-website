@@ -1,13 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /**
- * Floating WhatsApp button — appears after the user scrolls past the hero,
- * stays above the footer, and links to the business WhatsApp chat.
+ * Floating WhatsApp button. Appears after the user scrolls past the hero,
+ * hides near the footer, links to the business WhatsApp chat.
  */
 export function WhatsAppButton() {
   const [visible, setVisible] = useState(false);
@@ -32,7 +31,7 @@ export function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label="Chat with Smart H₂O on WhatsApp"
       className={cn(
-        "fixed bottom-5 right-5 z-40 inline-flex items-center gap-2.5 rounded-full bg-emerald-500 pl-4 pr-5 py-3.5 text-white font-semibold shadow-xl shadow-emerald-900/30 transition-all duration-300 hover:bg-emerald-600 hover:scale-105",
+        "fixed bottom-5 right-5 z-40 inline-flex items-center gap-2.5 rounded-full bg-accent text-primary pl-4 pr-5 py-3.5 font-semibold shadow-lg shadow-deep/25 transition-[opacity,transform,background-color] duration-300 hover:bg-primary hover:text-white",
         visible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-4 pointer-events-none"

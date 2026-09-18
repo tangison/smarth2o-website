@@ -1,107 +1,79 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import {
-  FlaskConical,
-  RefreshCcw,
-  CalendarCheck,
-  Truck,
-  Recycle,
-  Waves,
-} from "lucide-react";
-import { Reveal, SectionHeading } from "./reveal";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-const POINTS = [
+const TOPICS = [
   {
-    icon: FlaskConical,
-    title: "Water-quality controls",
-    description:
-      "Machines purify through a multi-stage process, and water quality is checked as part of our routine control programme — so taste, clarity and consistency stay right.",
+    id: "water-quality",
+    title: "Water quality",
+    body: "Treatment runs inside the machine and is checked on a service schedule. We speak to purification, taste and quality control. No health claims.",
   },
   {
-    icon: RefreshCcw,
-    title: "Filter replacement & sanitation",
-    description:
-      "Filters and treatment media are replaced on schedule, and dispensing areas are sanitized regularly to keep every refill fresh and clean.",
+    id: "servicing",
+    title: "Filters, sanitation, maintenance",
+    body: "Replacement and sanitation happen on a preventive schedule, not when something breaks. Machines are monitored and visited, and small issues get corrected before they become outages.",
   },
   {
-    icon: CalendarCheck,
-    title: "Preventive maintenance",
-    description:
-      "We service machines before problems appear. Planned visits cover filters, seals, dispensing components and general machine health.",
-  },
-  {
-    icon: Truck,
+    id: "local-response",
     title: "Local technical response",
-    description:
-      "Our technical team is based in Windhoek. When a machine needs attention, a real technician responds — not a call centre an ocean away.",
+    body: "Windhoek is our initial market. The technicians live here, so response does not wait on a flight.",
   },
   {
-    icon: Recycle,
-    title: "Reusable-container benefits",
-    description:
-      "Every refill in a customer\u2019s own bottle is one fewer single-use plastic. Institutions cut plastic waste without sacrificing convenience.",
-  },
-  {
-    icon: Waves,
-    title: "Responsible RO reject handling",
-    description:
-      "Reverse-osmosis systems produce concentrate. We plan for responsible handling and disposal of RO reject water in line with good practice.",
+    id: "sustainability",
+    title: "Sustainability",
+    body: "Every refill replaces a single-use bottle. Over a term or a work year, that is a lot of plastic never bought. Reverse-osmosis reject water is handled responsibly, in line with the site's arrangements.",
   },
 ];
 
 export function Quality() {
   return (
-    <section id="quality" className="py-20 md:py-28 bg-muted/60">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Quality, Maintenance & Sustainability"
-          title="Quality you can taste, service you can rely on"
-          description="We speak plainly about what we deliver: purification, taste, convenience and quality control — backed by disciplined maintenance."
-        />
-
-        <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
-          {/* Image column */}
-          <Reveal className="lg:col-span-2 lg:sticky lg:top-28">
-            <div className="rounded-2xl overflow-hidden shadow-lg border border-border">
-              <img
-                src="/images/refill.jpg"
-                alt="A customer filling a reusable bottle at a Smart H₂O refill station"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-            <div className="mt-4 rounded-xl border border-teal-200 bg-accent/60 p-4 md:p-5">
-              <p className="text-sm leading-relaxed text-foreground/80">
-                <strong className="text-teal-800">Our promise is practical:</strong>{" "}
-                purified water, quality control and dependable machines. We make no
-                unverified health claims — we focus on what we can measure, maintain
-                and stand behind.
-              </p>
-            </div>
-          </Reveal>
-
-          {/* Points list */}
-          <div className="lg:col-span-3 space-y-4">
-            {POINTS.map((point, i) => (
-              <Reveal key={point.title} delay={0.05 * i}>
-                <Card className="border-border/80 hover:border-teal-300 transition-colors">
-                  <CardContent className="flex gap-4 p-5">
-                    <div className="inline-flex shrink-0 items-center justify-center h-11 w-11 rounded-lg bg-accent text-teal-700">
-                      <point.icon className="h-5 w-5" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <h3 className="text-base md:text-lg font-semibold text-foreground">
-                        {point.title}
-                      </h3>
-                      <p className="mt-1.5 text-sm md:text-[0.95rem] leading-relaxed text-muted-foreground">
-                        {point.description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Reveal>
-            ))}
+    <section id="quality" className="bg-mist border-y border-rule">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
+        <div className="grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16 items-start">
+          <div>
+            <h2 className="text-3xl md:text-[2.4rem] leading-[1.12] font-bold tracking-[-0.01em] text-primary">
+              Quality, kept
+              <br className="hidden sm:block" /> between&nbsp;visits.
+            </h2>
+            <p className="mt-4 max-w-[44ch] text-[0.9375rem] leading-relaxed text-foreground/75">
+              A refill point only works while the water is good and the
+              machine is running. This is how we hold that&nbsp;line.
+            </p>
+            <figure className="mt-8 hidden lg:block">
+              <div className="rounded-lg overflow-hidden">
+                <img
+                  src="/images/machine-detail.webp"
+                  alt="Detail of the Smart H₂O machine screen and panel"
+                  width={800}
+                  height={543}
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 28vw, 90vw"
+                  className="w-full h-auto"
+                />
+              </div>
+              <figcaption className="mono-label mt-2.5 text-steel">
+                Screen and panel detail
+              </figcaption>
+            </figure>
           </div>
+
+          <Accordion type="single" collapsible defaultValue="water-quality" className="w-full">
+            {TOPICS.map((t) => (
+              <AccordionItem key={t.id} value={t.id} className="border-rule">
+                <AccordionTrigger className="text-left text-[0.9375rem] font-semibold text-primary hover:text-accent hover:no-underline py-4">
+                  {t.title}
+                </AccordionTrigger>
+                <AccordionContent className="text-[0.8125rem] leading-relaxed text-foreground/75 pb-5 max-w-[54ch]">
+                  {t.body}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>

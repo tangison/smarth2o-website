@@ -52,3 +52,14 @@ prompt
 server.log
 # Skills directory
 /skills/
+# local working material
+/assets/
+/skills-out/
+/tool-results/
+/upload/
+/db/
+/examples/
+/tests/
+/worklog.md
+/design.md
+/prod.log

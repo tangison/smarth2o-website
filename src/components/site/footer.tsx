@@ -1,36 +1,27 @@
-"use client";
-
+import Link from "next/link";
 import { Logo } from "./logo";
 import { NAV_LINKS, SITE } from "@/lib/site";
-import { MapPin, Mail, Phone } from "lucide-react";
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-deep-water text-teal-50/80">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid md:grid-cols-3 gap-10 md:gap-8">
-          {/* Brand */}
-          <div>
-            <Logo light />
-            <p className="mt-4 text-sm leading-relaxed text-teal-50/70 max-w-xs">
-              Smart water-refill solutions for Namibian campuses, hospitals,
-              workplaces and public facilities.
-            </p>
-          </div>
+    <footer className="bg-deep text-white">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        {/* Very huge white logo */}
+        <div className="pt-14 md:pt-20 pb-10 md:pb-14 border-b border-white/12">
+          <Logo light width={960} className="w-full max-w-[min(100%,560px)] md:max-w-[720px]" />
+        </div>
 
-          {/* Nav */}
+        {/* Minimal link rows */}
+        <div className="py-8 md:py-10 flex flex-col md:flex-row md:items-start justify-between gap-8">
           <nav aria-label="Footer navigation">
-            <p className="text-sm font-semibold uppercase tracking-wider text-teal-300">
-              Explore
-            </p>
-            <ul className="mt-4 space-y-2.5 columns-1 sm:columns-2 gap-x-6">
+            <ul className="flex flex-wrap gap-x-7 gap-y-3">
               {NAV_LINKS.map((link) => (
-                <li key={link.href} className="break-inside-avoid">
+                <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm hover:text-white transition-colors"
+                    className="text-[0.8125rem] font-medium text-white/65 hover:text-white transition-colors"
                   >
                     {link.label}
                   </a>
@@ -38,43 +29,67 @@ export function Footer() {
               ))}
             </ul>
           </nav>
-
-          {/* Contact */}
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-teal-300">
-              Contact
-            </p>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin className="h-4 w-4 text-teal-300 mt-0.5 shrink-0" aria-hidden="true" />
-                {SITE.location}
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail className="h-4 w-4 text-teal-300 mt-0.5 shrink-0" aria-hidden="true" />
-                <a href={`mailto:${SITE.email}`} className="hover:text-white transition-colors">
-                  {SITE.email}
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Phone className="h-4 w-4 text-teal-300 mt-0.5 shrink-0" aria-hidden="true" />
-                <a
-                  href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-                  className="hover:text-white transition-colors"
-                >
-                  {SITE.phone}
-                </a>
-              </li>
-            </ul>
-          </div>
+          <ul className="flex flex-col gap-1.5 text-[0.8125rem] text-white/65">
+            <li>
+              <a
+                href={`mailto:${SITE.email}`}
+                className="hover:text-white transition-colors"
+              >
+                {SITE.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`tel:${SITE.phone.replace(/\s/g, "")}`}
+                className="hover:text-white transition-colors"
+              >
+                {SITE.phone}
+              </a>
+            </li>
+            <li>{SITE.location}</li>
+          </ul>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-teal-50/55">
+        <div className="border-t border-white/12 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[0.75rem] text-white/45">
           <p>
             © {year} {SITE.legalName}. All rights reserved.
           </p>
-          <p>
-            {SITE.domain} · {SITE.tagline}
+          <p className="flex items-center gap-2 flex-wrap">
+            <span>{SITE.domain}</span>
+            <span aria-hidden="true">·</span>
+            <Link
+              href="/brand"
+              className="hover:text-white/80 transition-colors"
+            >
+              Brand
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link
+              href="/privacy"
+              className="hover:text-white/80 transition-colors"
+            >
+              Privacy
+            </Link>
+            <span aria-hidden="true">·</span>
+            <Link
+              href="/terms"
+              className="hover:text-white/80 transition-colors"
+            >
+              Terms
+            </Link>
           </p>
+        </div>
+
+        <div className="pb-8 text-[0.75rem] text-white/35">
+          Made by{" "}
+          <a
+            href="https://studio.tangison.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 hover:text-white/70 transition-colors"
+          >
+            Tangison Studio
+          </a>
         </div>
       </div>
     </footer>
