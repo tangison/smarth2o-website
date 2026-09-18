@@ -2,6 +2,32 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { db } from "@/lib/db";
 
+/**
+ * On serverless hosts (Vercel) the SQLite file lives in /tmp and may not
+ * exist yet. Ensure the table exists before the first write. Safe to run
+ * on every request: CREATE TABLE IF NOT EXISTS is a no-op afterwards.
+ */
+async function ensureSchema() {
+  await db.$executeRawUnsafe(`
+    CREATE TABLE IF NOT EXISTS "Enquiry" (
+      "id" TEXT NOT NULL PRIMARY KEY,
+      "name" TEXT NOT NULL,
+      "email" TEXT NOT NULL,
+      "phone" TEXT,
+      "organization" TEXT,
+      "interest" TEXT NOT NULL,
+      "message" TEXT NOT NULL,
+      "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );
+  `);
+  await db.$executeRawUnsafe(
+    `CREATE INDEX IF NOT EXISTS "Enquiry_createdAt_idx" ON "Enquiry"("createdAt");`
+  );
+  await db.$executeRawUnsafe(
+    `CREATE INDEX IF NOT EXISTS "Enquiry_interest_idx" ON "Enquiry"("interest");`
+  );
+}
+
 const enquirySchema = z.object({
   name: z
     .string()
@@ -49,6 +75,12 @@ export async function POST(request: NextRequest) {
     }
 
     const { name, email, phone, organization, interest, message } = parsed.data;
+
+    try {
+      await ensureSchema();
+    } catch {
+      // Local dev: schema already exists via prisma db push. Ignore.
+    }
 
     const enquiry = await db.enquiry.create({
       data: {
