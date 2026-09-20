@@ -4,8 +4,8 @@ import { SITE } from "@/lib/site";
 
 const HERO_MACHINE = {
   src: "/images/machine-branded.webp",
-  width: 619,
-  height: 1214,
+  width: 760,
+  height: 1294,
 };
 
 export function Hero() {
@@ -94,7 +94,7 @@ export function Hero() {
                 height={HERO_MACHINE.height}
                 fetchPriority="high"
                 sizes="(min-width: 1024px) 30vw, 60vw"
-                srcSet="/images/machine-branded-480w.webp 480w, /images/machine-branded-768w.webp 768w, /images/machine-branded.webp 619w"
+                srcSet="/images/machine-branded-480w.webp 480w, /images/machine-branded.webp 760w"
                 className="relative z-10 w-[min(64vw,320px)] lg:w-auto lg:h-[min(56vh,540px)] h-auto"
               />
               <div

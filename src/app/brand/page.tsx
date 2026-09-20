@@ -22,7 +22,9 @@ const LOCKUPS = [
   { src: "/images/logo-horizontal.webp", alt: "Smart H₂O horizontal primary logo", caption: "Horizontal lockup, preferred master", dark: false },
   { src: "/images/logo-primary.webp", alt: "Smart H₂O stacked square logo", caption: "Stacked lockup, square contexts", dark: false },
   { src: "/images/logo-mark.webp", alt: "Smart H₂O brand mark", caption: "Brand mark, icon contexts", dark: false },
+  { src: "/images/svg/smart-h2o-logo-mark-flat.svg", alt: "Smart H₂O flat mark as scalable vector", caption: "Flat mark, true SVG — navy", dark: false },
   { src: "/images/logo-horizontal-white.webp", alt: "Smart H₂O horizontal logo, white reversed", caption: "White reversed, dark backgrounds only", dark: true },
+  { src: "/images/svg/smart-h2o-logo-mark-flat-white.svg", alt: "Smart H₂O flat mark in white as scalable vector", caption: "Flat mark, true SVG — white", dark: true },
 ];
 
 export default function BrandPage() {

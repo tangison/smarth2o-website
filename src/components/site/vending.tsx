@@ -51,11 +51,11 @@ export function Vending() {
             <img
               src="/images/machine-branded.webp"
               alt="Smart H₂O branded water-refill vending machine with PURE, SAFE, AFFORDABLE and SUSTAINABLE panel"
-              width={619}
-              height={1214}
+              width={760}
+              height={1294}
               loading="lazy"
               sizes="(min-width: 1024px) 32vw, 70vw"
-              srcSet="/images/machine-branded-480w.webp 480w, /images/machine-branded-768w.webp 768w, /images/machine-branded.webp 619w"
+              srcSet="/images/machine-branded-480w.webp 480w, /images/machine-branded.webp 760w"
               className="w-[min(58vw,300px)] lg:w-auto max-w-[320px] max-h-[300px] sm:max-h-[420px] lg:max-h-[520px] h-auto object-contain"
             />
           </figure>
@@ -84,11 +84,11 @@ export function Vending() {
                 <img
                   src="/images/machine-plain.webp"
                   alt="Unbranded Smart H₂O refill unit, front view"
-                  width={615}
-                  height={1383}
+                  width={760}
+                  height={1513}
                   loading="lazy"
                   sizes="(min-width: 640px) 280px, 62vw"
-                  srcSet="/images/machine-plain-480w.webp 480w, /images/machine-plain.webp 615w"
+                  srcSet="/images/machine-plain-480w.webp 480w, /images/machine-plain.webp 760w"
                   className="w-[72%] h-auto"
                 />
               </div>

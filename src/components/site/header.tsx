@@ -252,12 +252,14 @@ export function Header() {
             aria-label="Smart H₂O, home"
             className="flex items-center rounded-full focus-visible:outline-2 focus-visible:outline-ring"
           >
-            <span className={cn("relative block w-[158px]", scrolled ? "h-[34px]" : "h-[37px]")}>
+            <span className={cn("relative block w-[122px]", scrolled ? "h-[34px]" : "h-[37px]")}>
               <img
-                src="/images/logo-horizontal.webp"
+                src="/images/logo-horizontal-480w.webp"
                 alt="Smart H₂O"
-                width={1100}
-                height={259}
+                width={1724}
+                height={549}
+                sizes="122px"
+                srcSet="/images/logo-horizontal-480w.webp 480w, /images/logo-horizontal-960w.webp 960w, /images/logo-horizontal.webp 1724w"
                 fetchPriority="high"
                 className={cn(
                   "absolute left-0 top-0 h-full w-auto max-w-none transition-opacity duration-300",
@@ -265,11 +267,11 @@ export function Header() {
                 )}
               />
               <img
-                src="/images/logo-horizontal-white-180.webp"
+                src="/images/logo-horizontal-white-480w.webp"
                 alt=""
                 aria-hidden="true"
-                width={763}
-                height={180}
+                width={480}
+                height={153}
                 fetchPriority="high"
                 className={cn(
                   "absolute left-0 top-0 h-full w-auto max-w-none transition-opacity duration-300",
@@ -399,10 +401,10 @@ export function Header() {
       >
         <div className="flex items-center justify-between px-5 h-20 border-b border-rule">
           <img
-            src="/images/logo-horizontal.webp"
+            src="/images/logo-horizontal-480w.webp"
             alt="Smart H₂O"
-            width={1100}
-            height={259}
+            width={480}
+            height={153}
             className="h-auto w-auto max-h-9"
           />
           <button

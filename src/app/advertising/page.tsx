@@ -74,8 +74,8 @@ export default function AdvertisingPage() {
                   <img
                     src="/images/machine-detail.webp"
                     alt="Close view of a Smart H₂O machine's screen and control panel"
-                    width={800}
-                    height={543}
+                    width={690}
+                    height={550}
                     loading="lazy"
                     sizes="(min-width: 1024px) 44vw, 90vw"
                     className="w-full h-auto"
