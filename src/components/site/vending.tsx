@@ -128,6 +128,54 @@ export function Vending() {
                 Before branding
               </figcaption>
             </figure>
+            <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
+              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+                <img
+                  src="/images/student-refill.webp"
+                  alt="Student refilling her bottle at a Smart H₂O machine on campus"
+                  width={468}
+                  height={623}
+                  loading="lazy"
+                  sizes="(min-width: 640px) 280px, 62vw"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <figcaption className="mono-label mt-2.5 text-steel">
+                Refill in action
+              </figcaption>
+            </figure>
+            <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
+              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+                <img
+                  src="/images/machine-angled.webp"
+                  alt="Branded Smart H₂O refill unit, angled profile"
+                  width={316}
+                  height={580}
+                  loading="lazy"
+                  sizes="(min-width: 640px) 280px, 62vw"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <figcaption className="mono-label mt-2.5 text-steel">
+                Angled profile
+              </figcaption>
+            </figure>
+            <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
+              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+                <img
+                  src="/images/bottles-pair.webp"
+                  alt="Smart H₂O branded reusable bottles"
+                  width={540}
+                  height={710}
+                  loading="lazy"
+                  sizes="(min-width: 640px) 280px, 62vw"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <figcaption className="mono-label mt-2.5 text-steel">
+                Own bottle — soon
+              </figcaption>
+            </figure>
             <Link
               href="/contact?interest=host-machine"
               className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] lg:flex-1 aspect-[3/4] lg:aspect-auto rounded-2xl bg-primary text-white flex flex-col justify-between p-6 hover:bg-foreground transition-colors"

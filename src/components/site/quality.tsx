@@ -47,17 +47,17 @@ export function Quality() {
             <figure className="mt-8 hidden lg:block">
               <div className="rounded-lg overflow-hidden">
                 <img
-                  src="/images/machine-detail.webp"
-                  alt="Detail of the Smart H₂O machine screen and panel"
-                  width={690}
-                  height={550}
+                  src="/images/refill-nozzle.webp"
+                  alt="Water streaming from the Smart H₂O refill nozzle into a reusable bottle"
+                  width={560}
+                  height={699}
                   loading="lazy"
                   sizes="(min-width: 1024px) 28vw, 90vw"
                   className="w-full h-auto"
                 />
               </div>
               <figcaption className="mono-label mt-2.5 text-steel">
-                Screen and panel detail
+                Refill point, up close
               </figcaption>
             </figure>
           </div>
