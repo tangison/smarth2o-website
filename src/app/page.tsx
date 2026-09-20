@@ -6,6 +6,7 @@ import { Footer } from "@/components/site/footer";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
 import { ScrollTop } from "@/components/site/scroll-top";
 import { Hero } from "@/components/site/hero";
+import { Gallery } from "@/components/site/gallery";
 import { Advertising } from "@/components/site/advertising";
 import { HowItWorks } from "@/components/site/how-it-works";
 import { Active } from "@/components/site/active";
@@ -54,6 +55,9 @@ export default function Home() {
       <Header />
       <main id="main" className="flex-1">
         <Hero />
+
+        {/* Shuffling gallery: statement first, imagery right behind it */}
+        <Gallery />
 
         {/* Editorial index: one rule per page, no cards */}
         <section className="bg-paper">
