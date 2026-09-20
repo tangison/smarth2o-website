@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MessageCircle } from "lucide-react";
 import { Logo } from "./logo";
 import { NAV_LINKS, SITE } from "@/lib/site";
 
@@ -10,7 +11,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Very huge white logo */}
         <div className="pt-14 md:pt-20 pb-10 md:pb-14 border-b border-white/12">
-          <Logo light width={960} className="w-full max-w-[min(100%,560px)] md:max-w-[720px]" />
+          <Logo light width={720} className="w-full max-w-[min(100%,560px)] md:max-w-[720px]" />
         </div>
 
         {/* Minimal link rows */}
@@ -19,17 +20,17 @@ export function Footer() {
             <ul className="flex flex-wrap gap-x-7 gap-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
-                    className="text-[0.8125rem] font-medium text-white/65 hover:text-white transition-colors"
+                    className="text-[0.8125rem] font-medium text-white/70 hover:text-white transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
-          <ul className="flex flex-col gap-1.5 text-[0.8125rem] text-white/65">
+          <ul className="flex flex-col gap-1.5 text-[0.8125rem] text-white/70">
             <li>
               <a
                 href={`mailto:${SITE.email}`}
@@ -40,17 +41,25 @@ export function Footer() {
             </li>
             <li>
               <a
-                href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-                className="hover:text-white transition-colors"
+                href={SITE.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
               >
-                {SITE.phone}
+                <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
+                Chat on WhatsApp
               </a>
             </li>
             <li>{SITE.location}</li>
           </ul>
         </div>
 
-        <div className="border-t border-white/12 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[0.75rem] text-white/45">
+        {/* What is coming, kept honest and out of the way */}
+        <p className="pb-8 -mt-2 text-[0.8125rem] text-white/50 max-w-[60ch]">
+          {SITE.teaser}
+        </p>
+
+        <div className="border-t border-white/12 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[0.75rem] text-white/55">
           <p>
             © {year} {SITE.legalName}. All rights reserved.
           </p>
@@ -59,34 +68,34 @@ export function Footer() {
             <span aria-hidden="true">·</span>
             <Link
               href="/brand"
-              className="hover:text-white/80 transition-colors"
+              className="hover:text-white/85 transition-colors"
             >
               Brand
             </Link>
             <span aria-hidden="true">·</span>
             <Link
               href="/privacy"
-              className="hover:text-white/80 transition-colors"
+              className="hover:text-white/85 transition-colors"
             >
               Privacy
             </Link>
             <span aria-hidden="true">·</span>
             <Link
               href="/terms"
-              className="hover:text-white/80 transition-colors"
+              className="hover:text-white/85 transition-colors"
             >
               Terms
             </Link>
           </p>
         </div>
 
-        <div className="pb-8 text-[0.75rem] text-white/35">
+        <div className="pb-8 text-[0.75rem] text-white/50">
           Made by{" "}
           <a
             href="https://studio.tangison.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-2 hover:text-white/70 transition-colors"
+            className="underline underline-offset-2 hover:text-white/75 transition-colors"
           >
             Tangison Studio
           </a>

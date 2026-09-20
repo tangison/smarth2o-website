@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const TABS = [
@@ -16,16 +17,28 @@ const TABS = [
     body: "Reliable purified water for staff, patients and visitors, with spillage control that matters in clinical corridors. Messaging on the screen stays under the facility's control.",
   },
   {
+    id: "government",
+    label: "Government",
+    title: "Government offices and public institutions",
+    body: "A prepaid, self-service refill point suits access-controlled buildings and public counters alike. Usage is visible, servicing is scheduled, and the screen carries the office's own notices first.",
+  },
+  {
+    id: "centres",
+    label: "Centres",
+    title: "Shopping centres and public facilities",
+    body: "Refill points where foot traffic already is. Dry floors, prepaid access and a screen the centre can use for its own messaging first.",
+  },
+  {
+    id: "gyms",
+    label: "Gyms and sport",
+    title: "Gyms and sports facilities",
+    body: "Members refill training bottles before and after sessions. High throughput at peak hours, and a natural fit with Smart H₂O Active bottles sold or handed out on site.",
+  },
+  {
     id: "workplaces",
     label: "Workplaces",
     title: "Offices, factories and sites",
     body: "One less thing for facilities teams to manage. Cashless payment suits access-controlled sites, and servicing visits are scheduled, not reactive.",
-  },
-  {
-    id: "public",
-    label: "Public",
-    title: "Shopping centres and public facilities",
-    body: "Refill points where foot traffic already is. Dry floors, prepaid access and a screen the centre can use for its own messaging first.",
   },
 ];
 
@@ -46,7 +59,7 @@ const SPLIT = [
 
 export function Institutions() {
   return (
-    <section id="institutions" className="bg-mist border-y border-rule">
+    <section className="bg-mist">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
         <h2 className="text-2xl md:text-[2rem] font-bold leading-[1.15] tracking-[-0.01em] text-primary">
           Wherever people gather.
@@ -57,12 +70,12 @@ export function Institutions() {
         </p>
 
         <Tabs defaultValue="campuses" className="mt-10 md:mt-14">
-          <TabsList className="bg-paper border border-rule h-auto p-1 flex flex-wrap justify-start gap-1 rounded-lg">
+          <TabsList className="bg-paper border border-rule h-auto p-1 flex flex-wrap justify-start gap-1 rounded-full">
             {TABS.map((t) => (
               <TabsTrigger
                 key={t.id}
                 value={t.id}
-                className="data-[state=active]:bg-primary data-[state=active]:text-white text-sm font-semibold px-4 py-2.5 rounded-md text-steel"
+                className="data-[state=active]:bg-primary data-[state=active]:text-white text-sm font-semibold px-4 py-2.5 rounded-full text-steel"
               >
                 {t.label}
               </TabsTrigger>
@@ -80,7 +93,7 @@ export function Institutions() {
           ))}
         </Tabs>
 
-        <div className="mt-12 md:mt-16 grid sm:grid-cols-2 gap-px bg-rule border border-rule rounded-lg overflow-hidden">
+        <div className="mt-12 md:mt-16 grid sm:grid-cols-2 gap-px bg-rule border border-rule rounded-2xl overflow-hidden">
           {SPLIT.map((s) => (
             <div key={s.who} className="bg-paper p-6 md:p-8">
               <p className="mono-label text-primary">{s.who}</p>
@@ -98,9 +111,17 @@ export function Institutions() {
           ))}
         </div>
 
-        <p className="mt-6 text-[0.8125rem] text-steel">
-          Final terms per site are set out in the institutional agreement.
-        </p>
+        <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
+          <Link
+            href="/contact?interest=host-machine"
+            className="bg-primary text-white text-sm font-semibold px-6 py-3.5 rounded-full hover:bg-foreground transition-colors w-fit"
+          >
+            Host a machine
+          </Link>
+          <p className="text-[0.8125rem] text-steel">
+            Final terms per site are set out in the institutional agreement.
+          </p>
+        </div>
       </div>
     </section>
   );

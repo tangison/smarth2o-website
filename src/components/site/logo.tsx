@@ -17,8 +17,8 @@ export function Logo({
   priority?: boolean;
 }) {
   const src = light ? "/images/logo-horizontal-white.webp" : "/images/logo-horizontal.webp";
-  // master: 1536x361 (white) / 511x120 (colour)
-  const dims = light ? { w: 1532, h: 360 } : { w: 511, h: 120 };
+  // trimmed masters: 1100x259 (both variants, same aspect)
+  const dims = { w: 1100, h: 259 };
   const height = Math.round(width * (dims.h / dims.w));
   return (
     <img

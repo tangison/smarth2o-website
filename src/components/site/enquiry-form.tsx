@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -40,7 +41,9 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-function EnquiryForm() {
+const VALID_INTERESTS = INTEREST_OPTIONS.map((o) => o.value) as unknown as string[];
+
+export function EnquiryForm() {
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -64,23 +67,20 @@ function EnquiryForm() {
     },
   });
 
-  const interestValue = watch("interest");
+  // Display state mirrors the form field so the trigger always shows a value
+  const [interestValue, setInterestValue] = useState<FormValues["interest"]>("general");
 
-  // Preselect the interest when a CTA with data-interest is clicked anywhere
+  // Preselect the interest from ?interest= (CTAs link here from every page)
   useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      const anchor = (e.target as HTMLElement).closest?.(
-        "a[data-interest]"
-      ) as HTMLElement | null;
-      if (anchor?.dataset.interest) {
-        const value = anchor.dataset.interest as FormValues["interest"];
-        if (INTEREST_OPTIONS.some((o) => o.value === value)) {
-          setValue("interest", value);
-        }
+    try {
+      const param = new URLSearchParams(window.location.search).get("interest");
+      if (param && VALID_INTERESTS.includes(param)) {
+        setInterestValue(param as FormValues["interest"]);
+        setValue("interest", param as FormValues["interest"]);
       }
-    };
-    document.addEventListener("click", handler);
-    return () => document.removeEventListener("click", handler);
+    } catch {
+      /* no URLSearchParams support: the select stays as-is */
+    }
   }, [setValue]);
 
   const onSubmit = async (values: FormValues) => {
@@ -124,7 +124,7 @@ function EnquiryForm() {
 
   if (submitted) {
     return (
-      <div className="border border-rule rounded-lg p-8 md:p-10 bg-paper">
+      <div className="border border-rule rounded-2xl p-8 md:p-10 bg-paper">
         <h3 className="text-xl font-bold text-primary">
           Thank you, we have your enquiry
         </h3>
@@ -137,7 +137,7 @@ function EnquiryForm() {
             href={SITE.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 border border-primary text-primary text-sm font-semibold px-5 py-3 rounded-md hover:bg-secondary transition-colors"
+            className="inline-flex items-center justify-center gap-2 border border-primary text-primary text-sm font-semibold px-5 py-3 rounded-full hover:bg-secondary transition-colors"
           >
             <MessageCircle className="h-4 w-4" aria-hidden="true" />
             WhatsApp us
@@ -221,11 +221,11 @@ function EnquiryForm() {
           What is your enquiry about? *
         </Label>
         <Select
-          onValueChange={(v) =>
-            setValue("interest", v as FormValues["interest"], {
-              shouldValidate: true,
-            })
-          }
+          onValueChange={(v) => {
+            const next = v as FormValues["interest"];
+            setInterestValue(next);
+            setValue("interest", next, { shouldValidate: true });
+          }}
           value={interestValue}
         >
           <SelectTrigger id="interest" className="w-full" aria-invalid={!!errors.interest}>
@@ -263,7 +263,7 @@ function EnquiryForm() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full bg-primary text-white text-sm font-semibold px-6 py-3.5 rounded-md hover:bg-foreground transition-colors inline-flex items-center justify-center gap-2 disabled:opacity-60"
+        className="w-full bg-primary text-white text-sm font-semibold px-6 py-3.5 rounded-full hover:bg-foreground transition-colors inline-flex items-center justify-center gap-2 disabled:opacity-60"
       >
         {submitting ? (
           <>
@@ -285,80 +285,43 @@ function EnquiryForm() {
   );
 }
 
-export function AboutContact() {
+/** Contact rows: email, click-to-chat WhatsApp (number never printed), location. */
+export function ContactRows({ className }: { className?: string }) {
   return (
-    <section id="about" className="bg-mist border-t border-rule">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* About + direct contact */}
-          <div>
-            <h2 className="text-3xl md:text-[2.4rem] leading-[1.12] font-bold tracking-[-0.01em] text-primary">
-              Namibian owned.
-              <br />
-              Windhoek first.
-            </h2>
-            <p className="mt-5 text-[0.9375rem] leading-relaxed text-steel max-w-[52ch]">
-              {SITE.legalName} is a Namibian business. We install and maintain
-              water-refill machines where people already spend their day, and
-              the team servicing them lives and works here.
-            </p>
-            <p className="mt-4 text-[0.9375rem] leading-relaxed text-steel max-w-[52ch]">
-              Windhoek is our initial operating market. As the network of
-              refill points grows, so does our reach across Namibia.
-            </p>
-
-            <ul className="mt-8 border-t border-rule">
-              <li className="border-b border-rule py-4 flex items-baseline justify-between gap-6">
-                <span className="mono-label text-steel shrink-0">Email</span>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="text-[0.9375rem] font-medium text-primary hover:text-accent transition-colors"
-                >
-                  {SITE.email}
-                </a>
-              </li>
-              <li className="border-b border-rule py-4 flex items-baseline justify-between gap-6">
-                <span className="mono-label text-steel shrink-0">Phone</span>
-                <a
-                  href={`tel:${SITE.phone.replace(/\s/g, "")}`}
-                  className="text-[0.9375rem] font-medium text-primary hover:text-accent transition-colors"
-                >
-                  {SITE.phone}
-                </a>
-              </li>
-              <li className="border-b border-rule py-4 flex items-baseline justify-between gap-6">
-                <span className="mono-label text-steel shrink-0">WhatsApp</span>
-                <a
-                  href={SITE.whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[0.9375rem] font-medium text-primary hover:text-accent transition-colors"
-                >
-                  <MessageCircle className="h-4 w-4" aria-hidden="true" />
-                  {SITE.whatsapp}
-                </a>
-              </li>
-              <li className="border-b border-rule py-4 flex items-baseline justify-between gap-6">
-                <span className="mono-label text-steel shrink-0">Based in</span>
-                <span className="text-[0.9375rem] font-medium text-primary">
-                  {SITE.location}
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Enquiry form */}
-          <div id="contact" className="scroll-mt-24 border border-rule rounded-lg bg-paper p-6 md:p-10">
-            <h3 className="text-xl font-bold text-primary">Send us an enquiry</h3>
-            <p className="mt-2 text-[0.8125rem] leading-relaxed text-foreground/75">
-              Tell us what you need and we will get back to you.
-            </p>
-            <div className="mt-6">
-              <EnquiryForm />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <ul className={`border-t border-rule ${className ?? ""}`}>
+      <li className="border-b border-rule py-4 flex items-baseline justify-between gap-6">
+        <span className="mono-label text-steel shrink-0">Email</span>
+        <a
+          href={`mailto:${SITE.email}`}
+          className="text-[0.9375rem] font-medium text-primary hover:text-accent transition-colors"
+        >
+          {SITE.email}
+        </a>
+      </li>
+      <li className="border-b border-rule py-4 flex items-baseline justify-between gap-6">
+        <span className="mono-label text-steel shrink-0">WhatsApp</span>
+        <a
+          href={SITE.whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-[0.9375rem] font-medium text-primary hover:text-accent transition-colors"
+        >
+          <MessageCircle className="h-4 w-4" aria-hidden="true" />
+          Chat with us
+        </a>
+      </li>
+      <li className="border-b border-rule py-4 flex items-baseline justify-between gap-6">
+        <span className="mono-label text-steel shrink-0">Based in</span>
+        <span className="text-[0.9375rem] font-medium text-primary">
+          {SITE.location}
+        </span>
+      </li>
+      <li className="border-b border-rule py-4 flex items-baseline justify-between gap-6">
+        <span className="mono-label text-steel shrink-0">On the way</span>
+        <span className="text-[0.875rem] text-steel max-w-[34ch] text-right">
+          {SITE.teaser}
+        </span>
+      </li>
+    </ul>
   );
 }

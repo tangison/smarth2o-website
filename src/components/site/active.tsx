@@ -12,9 +12,8 @@ export function Active() {
             play and work hard.
           </p>
           <a
-            href="#contact"
-            data-interest="smart-h2o-active"
-            className="mt-6 inline-block border border-primary text-primary text-sm font-semibold px-6 py-3 rounded-md hover:bg-secondary transition-colors"
+            href="/contact?interest=smart-h2o-active"
+            className="mt-6 inline-block border border-primary text-primary text-sm font-semibold px-6 py-3 rounded-full hover:bg-secondary transition-colors"
           >
             Ask about Active products
           </a>

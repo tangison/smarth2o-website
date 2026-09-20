@@ -1,6 +1,10 @@
 /**
  * Smart H₂O Solutions and Trading CC, site-wide constants.
- * Update contact details here once final numbers are confirmed.
+ *
+ * Contact policy (confirmed by the owner):
+ * - Email is public: info@smarth2o.com.na
+ * - The WhatsApp number is the owner's phone. It powers every
+ *   click-to-chat link but is never printed as text on the site.
  */
 
 export const SITE = {
@@ -9,23 +13,37 @@ export const SITE = {
   domain: "smarth2o.com.na",
   url: "https://smarth2o.com.na",
   tagline: "Purified water. Smart machines. Namibia.",
-  // ⚠️ PLACEHOLDER, replace with the official business phone / WhatsApp number
-  whatsapp: "+264 81 000 0000",
+  whatsapp: "+264 81 347 4653",
   whatsappLink:
-    "https://wa.me/26481000000?text=Hello%20Smart%20H2O%2C%20I%20would%20like%20to%20find%20out%20more%20about%20your%20water%20refill%20solutions.",
-  // ⚠️ PLACEHOLDER, replace with the official business email
+    "https://wa.me/264813474653?text=Hello%20Smart%20H2O%2C%20I%20would%20like%20to%20find%20out%20more%20about%20your%20water%20refill%20solutions.",
   email: "info@smarth2o.com.na",
-  phone: "+264 81 000 0000",
   location: "Windhoek, Namibia",
+  // One allowed nod to what is coming, kept out of the main offer.
+  teaser: "Bottles, apparel and the Smart H₂O Café are in the pipeline.",
 } as const;
 
+/** Primary header navigation. */
 export const NAV_LINKS = [
-  { href: "#solutions", label: "Vending" },
-  { href: "#institutions", label: "Institutions" },
-  { href: "#advertising", label: "Advertising" },
-  { href: "#how-it-works", label: "Process" },
-  { href: "#quality", label: "Quality" },
-  { href: "#contact", label: "Contact" },
+  { href: "/vending", label: "Vending" },
+  { href: "/institutions", label: "Institutions" },
+  { href: "/advertising", label: "Advertising" },
+  { href: "/how-it-works", label: "Process" },
+  { href: "/quality", label: "Quality" },
+  { href: "/about", label: "About" },
+] as const;
+
+/** Complete page index used by the footer, search and the mobile menu. */
+export const PAGE_LINKS = [
+  { href: "/", label: "Home", hint: "Smart water-refill solutions for Namibian facilities" },
+  { href: "/vending", label: "Water Vending Solutions", hint: "Purified refill water, cashless access, high-capacity machines" },
+  { href: "/institutions", label: "Solutions for Institutions", hint: "Campuses, hospitals, offices, centres, gyms and public facilities" },
+  { href: "/advertising", label: "Screen Advertising", hint: "Reach people where they refill" },
+  { href: "/how-it-works", label: "How It Works", hint: "From site assessment to monitored performance" },
+  { href: "/quality", label: "Quality and Maintenance", hint: "Water quality, preventive servicing, sustainability" },
+  { href: "/active", label: "Smart H₂O Active", hint: "Bottles and hydration accessories" },
+  { href: "/about", label: "About", hint: "Namibian owned, Windhoek first" },
+  { href: "/contact", label: "Contact", hint: "Enquiry form, email and WhatsApp" },
+  { href: "/brand", label: "Brand", hint: "Logo, colours and type" },
 ] as const;
 
 export const INTEREST_OPTIONS = [

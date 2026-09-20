@@ -86,6 +86,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  other: {
+    "geo.region": "NA-KH",
+    "geo.placename": "Windhoek",
+    "geo.position": "-22.5597;17.0832",
+    ICBM: "-22.5597, 17.0832",
+  },
 };
 
 const organizationJsonLd = {
@@ -97,13 +103,41 @@ const organizationJsonLd = {
   logo: `https://${SITE.domain}/images/logo-horizontal.webp`,
   description,
   email: SITE.email,
-  telephone: SITE.phone,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Windhoek",
     addressCountry: "NA",
   },
   areaServed: "Namibia",
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `https://${SITE.domain}/#business`,
+  name: SITE.legalName,
+  image: `https://${SITE.domain}/images/og-image.png`,
+  logo: `https://${SITE.domain}/images/logo-horizontal.webp`,
+  description,
+  email: SITE.email,
+  url: `https://${SITE.domain}`,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Windhoek",
+    addressRegion: "Khomas",
+    addressCountry: "NA",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -22.5597,
+    longitude: 17.0832,
+  },
+  areaServed: ["Windhoek", "Namibia"],
+  knowsAbout: [
+    "water refill vending machines",
+    "purified drinking water",
+    "institutional water solutions",
+  ],
 };
 
 export default function RootLayout({
@@ -122,6 +156,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessJsonLd),
           }}
         />
       </body>

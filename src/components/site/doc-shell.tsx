@@ -1,6 +1,7 @@
 import { Header } from "@/components/site/header";
 import { Footer } from "@/components/site/footer";
 import { WhatsAppButton } from "@/components/site/whatsapp-button";
+import { ScrollTop } from "@/components/site/scroll-top";
 
 export function DocShell({
   children,
@@ -20,6 +21,7 @@ export function DocShell({
       </main>
       <Footer />
       <WhatsAppButton />
+      <ScrollTop />
     </div>
   );
 }

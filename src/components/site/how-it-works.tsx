@@ -7,23 +7,23 @@ export function HowItWorks() {
     },
     {
       step: "02",
-      title: "Agreement",
+      title: "Institutional agreement",
       body: "Terms in writing: what the host provides, what we cover.",
     },
     {
       step: "03",
-      title: "Installation",
+      title: "Installation and commissioning",
       body: "Delivered, installed, commissioned. Refilling starts.",
     },
     {
       step: "04",
-      title: "Monitoring",
+      title: "Maintenance and monitoring",
       body: "Scheduled filters, sanitation, servicing and local response.",
     },
   ];
 
   return (
-    <section id="how-it-works" className="bg-paper">
+    <section className="bg-paper">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
         <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.01em] text-primary">
           From first call to first&nbsp;refill.

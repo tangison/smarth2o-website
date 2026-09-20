@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   Accordion,
   AccordionContent,
@@ -42,20 +43,11 @@ const FEATURES = [
 
 export function Vending() {
   return (
-    <section id="solutions" className="bg-paper">
+    <section className="bg-paper">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
-        <h2 className="text-3xl md:text-[2.4rem] leading-[1.12] font-bold tracking-[-0.01em] text-primary">
-          One machine, installed and
-          <br className="hidden sm:block" /> looked&nbsp;after.
-        </h2>
-        <p className="mt-4 max-w-[52ch] text-[0.9375rem] leading-relaxed text-foreground/75">
-          The host provides the location, a water supply and power. Smart H₂O
-          handles installation, servicing and support.
-        </p>
-
-        <div className="mt-10 md:mt-14 grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
           {/* Machine, the central visual */}
-          <figure className="bg-mist rounded-lg p-6 sm:p-10 flex justify-center">
+          <figure className="bg-mist rounded-2xl p-6 sm:p-10 flex justify-center lg:sticky lg:top-24">
             <img
               src="/images/machine-branded.webp"
               alt="Smart H₂O branded water-refill vending machine with PURE, SAFE, AFFORDABLE and SUSTAINABLE panel"
@@ -88,7 +80,7 @@ export function Vending() {
           <p className="mono-label text-primary">More views</p>
           <div className="snap-slider mt-4 -mx-4 px-4 sm:mx-0 sm:px-0">
             <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
-              <div className="bg-mist rounded-lg aspect-[3/4] flex items-center justify-center p-6">
+              <div className="bg-mist rounded-2xl aspect-[3/4] flex items-center justify-center p-6">
                 <img
                   src="/images/machine-plain.webp"
                   alt="Unbranded Smart H₂O refill unit, front view"
@@ -96,7 +88,7 @@ export function Vending() {
                   height={1383}
                   loading="lazy"
                   sizes="(min-width: 640px) 280px, 62vw"
-                  srcSet="/images/machine-plain-480w.webp 480w, /images/machine-plain-768w.webp 768w, /images/machine-plain.webp 615w"
+                  srcSet="/images/machine-plain-480w.webp 480w, /images/machine-plain.webp 615w"
                   className="w-[72%] h-auto"
                 />
               </div>
@@ -105,12 +97,12 @@ export function Vending() {
               </figcaption>
             </figure>
             <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
-              <div className="rounded-lg overflow-hidden aspect-[3/4]">
+              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
                 <img
                   src="/images/machine-factory.webp"
                   alt="Branded Smart H₂O refill unit on the factory floor"
-                  width={1280}
-                  height={1707}
+                  width={960}
+                  height={1280}
                   loading="lazy"
                   sizes="(min-width: 640px) 280px, 62vw"
                   className="w-full h-full object-cover"
@@ -120,10 +112,25 @@ export function Vending() {
                 Factory floor
               </figcaption>
             </figure>
-            <a
-              href="#contact"
-              data-interest="host-machine"
-              className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] lg:flex-1 aspect-[3/4] lg:aspect-auto rounded-lg bg-primary text-white flex flex-col justify-between p-6 hover:bg-foreground transition-colors"
+            <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
+              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+                <img
+                  src="/images/machine-factory-plain.webp"
+                  alt="Unbranded Smart H₂O refill unit in production"
+                  width={960}
+                  height={1280}
+                  loading="lazy"
+                  sizes="(min-width: 640px) 280px, 62vw"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <figcaption className="mono-label mt-2.5 text-steel">
+                Before branding
+              </figcaption>
+            </figure>
+            <Link
+              href="/contact?interest=host-machine"
+              className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] lg:flex-1 aspect-[3/4] lg:aspect-auto rounded-2xl bg-primary text-white flex flex-col justify-between p-6 hover:bg-foreground transition-colors"
             >
               <p className="text-xl md:text-2xl font-bold leading-tight">
                 Want a machine at your facility?
@@ -131,7 +138,7 @@ export function Vending() {
               <p className="text-sm font-semibold text-accent">
                 Host a machine
               </p>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
