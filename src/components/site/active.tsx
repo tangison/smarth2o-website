@@ -5,7 +5,7 @@ export function Active() {
         <div className="border-t-2 border-accent pt-6">
           <p className="mono-label text-primary">Smart H₂O Active</p>
           <h2 className="mt-3 text-xl md:text-2xl font-bold text-primary">
-            Hydrate. Perform. Recover.
+            A bottle you keep refilling.
           </h2>
           <p className="mt-3 max-w-[48ch] text-[0.9375rem] leading-relaxed text-foreground/75">
             Branded bottles and hydration accessories for people who train,

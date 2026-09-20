@@ -9,7 +9,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Smart H₂O Solutions and Trading CC in Windhoek: enquiry form, info@smarth2o.com.na, or WhatsApp us about hosting a machine, site assessments or screen advertising.",
+    "Contact Smart H₂O Solutions and Trading CC in Windhoek: enquiry form, info@smarth2o.com.na, or WhatsApp us about hosting a machine, site visits or screen advertising.",
   alternates: { canonical: "/contact" },
 };
 
@@ -27,7 +27,7 @@ export default function ContactPage() {
                 your&nbsp;site.
               </h1>
               <p className="text-[0.9375rem] md:text-base leading-relaxed text-steel max-w-[44ch] lg:ml-auto pb-1">
-                Machine hosting, site assessments, advertising or Smart H₂O
+                Machine hosting, site visits, advertising or Smart H₂O
                 Active products. One form, one inbox, straight to the team.
               </p>
             </div>

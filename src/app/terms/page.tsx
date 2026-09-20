@@ -17,7 +17,7 @@ export default function TermsPage() {
       </h1>
       <DocP>
         These terms cover the use of smarth2o.com.na and the enquiry process.
-        Commercial terms for hosting a machine, site assessments or
+        Commercial terms for hosting a machine, site visits or
         advertising are set out in a separate written agreement.
       </DocP>
 

@@ -34,7 +34,7 @@ const INDEX = [
   {
     href: "/how-it-works",
     label: "How It Works",
-    hint: "Site assessment, agreement, installation and commissioning, monitored maintenance.",
+    hint: "Site visit, agreement, installation and commissioning, monitored maintenance.",
   },
   {
     href: "/quality",
@@ -44,7 +44,7 @@ const INDEX = [
   {
     href: "/active",
     label: "Smart H₂O Active",
-    hint: "Bottles and hydration accessories. Hydrate. Perform. Recover.",
+    hint: "Bottles and hydration accessories. A bottle you keep refilling.",
   },
 ];
 

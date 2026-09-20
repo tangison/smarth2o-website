@@ -2,10 +2,11 @@ import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import { SITE } from "@/lib/site";
 
-const HERO_MACHINE = {
-  src: "/images/machine-branded.webp",
-  width: 760,
-  height: 1294,
+const HERO_SCENE = {
+  webp: "/images/smart-h2o-scene.webp",
+  png: "/images/smart-h2o-scene.png",
+  width: 1451,
+  height: 810,
 };
 
 export function Hero() {
@@ -34,21 +35,19 @@ export function Hero() {
       <div aria-hidden="true" className="absolute inset-0 bg-accent/10" />
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-16 items-end pt-28 pb-0 md:pt-36 lg:pt-40">
+        <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-end pt-28 pb-0 md:pt-36 lg:pt-40">
           {/* Copy */}
           <div className="pb-14 md:pb-20 lg:pb-28">
             <p className="hero-in text-[0.8125rem] font-medium text-white/65">
               {SITE.location}
             </p>
             <h1 className="hero-in-2 mt-5 text-[2.4rem] sm:text-5xl lg:text-[3.6rem] leading-[1.04] font-extrabold tracking-[-0.02em] text-white">
-              Purified water.
-              <br />
-              Refilled on&nbsp;site.
+              Water where people&nbsp;are.
             </h1>
             <p className="hero-in-3 mt-6 max-w-[52ch] text-[0.9375rem] md:text-base leading-relaxed text-white/80">
-              Smart H₂O installs and services water-refill vending machines for
-              Namibian campuses, hospitals, workplaces and public facilities.
-              People refill their own bottles. We keep the machines running.
+              Smart H₂O installs water-refill machines across Namibia and keeps
+              them running. Campuses, hospitals, workplaces, public facilities.
+              You bring the bottle. We do the rest.
             </p>
 
             <div className="hero-in-4 mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
@@ -56,7 +55,7 @@ export function Hero() {
                 href="/contact?interest=site-assessment"
                 className="bg-white text-primary text-sm font-semibold px-6 py-3.5 rounded-full hover:bg-mist transition-colors"
               >
-                Request a site assessment
+                Book a site visit
               </Link>
               <Link
                 href="/contact?interest=host-machine"
@@ -84,25 +83,23 @@ export function Hero() {
             </ul>
           </div>
 
-          {/* Real branded machine cutout, grounded with a soft shadow */}
-          <div className="hero-in-3 relative flex justify-center lg:justify-end pb-14 md:pb-20 lg:pb-28">
-            <figure className="relative">
-              <img
-                src={HERO_MACHINE.src}
-                alt="Smart H₂O branded water-refill vending machine with PURE, SAFE, AFFORDABLE and SUSTAINABLE panel"
-                width={HERO_MACHINE.width}
-                height={HERO_MACHINE.height}
-                fetchPriority="high"
-                sizes="(min-width: 1024px) 30vw, 60vw"
-                srcSet="/images/machine-branded-480w.webp 480w, /images/machine-branded.webp 760w"
-                className="relative z-10 w-[min(64vw,320px)] lg:w-auto lg:h-[min(56vh,540px)] h-auto"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute left-1/2 -translate-x-1/2 bottom-1 w-[62%] h-10 rounded-[50%] bg-black/35 blur-2xl"
-              />
+          {/* Official transparent scene: machine, bottle, splash, Namibian river.
+              object-contain keeps every element intact over the video wash */}
+          <div className="hero-in-3 relative flex justify-center lg:justify-end items-end pb-14 md:pb-20 lg:pb-28">
+            <figure className="w-full max-w-[560px]">
+              <picture>
+                <source srcSet={HERO_SCENE.webp} type="image/webp" />
+                <img
+                  src={HERO_SCENE.png}
+                  alt="Smart H₂O refill machine with a branded bottle, a water splash and a Namibian river scene"
+                  width={HERO_SCENE.width}
+                  height={HERO_SCENE.height}
+                  fetchPriority="high"
+                  className="relative z-10 w-full h-auto object-contain"
+                />
+              </picture>
               <figcaption className="mono-label mt-4 text-white/65 text-center">
-                Branded refill unit
+                Machine, bottle and splash, ready for the next refill
               </figcaption>
             </figure>
           </div>

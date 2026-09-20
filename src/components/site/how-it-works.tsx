@@ -2,7 +2,7 @@ export function HowItWorks() {
   const STAGES = [
     {
       step: "01",
-      title: "Site assessment",
+      title: "Site visit",
       body: "We visit, check water, power and foot traffic, and pick the spot.",
     },
     {
@@ -44,7 +44,7 @@ export function HowItWorks() {
         </ol>
 
         <p className="mt-12 text-[0.8125rem] text-steel max-w-[56ch]">
-          Assessments in Windhoek are arranged directly with our team.
+          Site visits in Windhoek are arranged directly with our team.
         </p>
       </div>
     </section>

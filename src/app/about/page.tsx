@@ -10,7 +10,7 @@ import { SITE } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Smart H₂O Solutions and Trading CC is a Namibian business installing and maintaining water-refill vending machines. Windhoek is the initial operating market, with a vision to grow the network across Namibia.",
+    "Smart H₂O Solutions and Trading CC is a Namibian business installing and maintaining water-refill vending machines. Windhoek is the initial operating market, with growth planned across Namibia.",
   alternates: { canonical: "/about" },
 };
 
@@ -68,9 +68,9 @@ export default function AboutPage() {
 
         <CtaBand
           title="The next refill point could be yours."
-          body="Start with a site assessment. It costs nothing but a short conversation about your facility."
+          body="Start with a site visit. It costs nothing but a short conversation about your facility."
           interest="site-assessment"
-          cta="Request a site assessment"
+          cta="Book a site visit"
         />
       </main>
       <Footer />

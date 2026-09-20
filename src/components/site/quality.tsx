@@ -11,7 +11,7 @@ const TOPICS = [
   {
     id: "water-quality",
     title: "Water quality",
-    body: "Treatment runs inside the machine and is checked on a service schedule. We speak to purification, taste and quality control. No health claims.",
+    body: "Treatment runs inside the machine and is checked on a service schedule: purification, taste and quality control. We make no health claims.",
   },
   {
     id: "servicing",

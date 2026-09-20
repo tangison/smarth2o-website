@@ -12,7 +12,7 @@ export const SITE = {
   legalName: "Smart H₂O Solutions and Trading CC",
   domain: "smarth2o.com.na",
   url: "https://smarth2o.com.na",
-  tagline: "Purified water. Smart machines. Namibia.",
+  tagline: "Water where people are.",
   whatsapp: "+264 81 347 4653",
   whatsappLink:
     "https://wa.me/264813474653?text=Hello%20Smart%20H2O%2C%20I%20would%20like%20to%20find%20out%20more%20about%20your%20water%20refill%20solutions.",
@@ -38,7 +38,7 @@ export const PAGE_LINKS = [
   { href: "/vending", label: "Water Vending Solutions", hint: "Purified refill water, cashless access, high-capacity machines" },
   { href: "/institutions", label: "Solutions for Institutions", hint: "Campuses, hospitals, offices, centres, gyms and public facilities" },
   { href: "/advertising", label: "Screen Advertising", hint: "Reach people where they refill" },
-  { href: "/how-it-works", label: "How It Works", hint: "From site assessment to monitored performance" },
+  { href: "/how-it-works", label: "How It Works", hint: "From site visit to monitored performance" },
   { href: "/quality", label: "Quality and Maintenance", hint: "Water quality, preventive servicing, sustainability" },
   { href: "/active", label: "Smart H₂O Active", hint: "Bottles and hydration accessories" },
   { href: "/about", label: "About", hint: "Namibian owned, Windhoek first" },
@@ -47,7 +47,7 @@ export const PAGE_LINKS = [
 ] as const;
 
 export const INTEREST_OPTIONS = [
-  { value: "site-assessment", label: "Request a site assessment" },
+  { value: "site-assessment", label: "Book a site visit" },
   { value: "host-machine", label: "Host a machine" },
   { value: "advertising", label: "Advertise on machine screens" },
   { value: "general", label: "General enquiry" },

@@ -24,7 +24,7 @@ export function Advertising() {
                 href="/advertising"
                 className="bg-white text-primary text-sm font-semibold px-6 py-3.5 rounded-full hover:bg-mist transition-colors"
               >
-                Explore screen advertising
+                See screen advertising
               </Link>
               <p className="text-[0.8125rem] text-white/60">
                 Rates on request.

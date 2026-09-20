@@ -47,17 +47,19 @@ export function Vending() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
           {/* Machine, the central visual */}
-          <figure className="bg-mist rounded-2xl p-6 sm:p-10 flex justify-center lg:sticky lg:top-24">
-            <img
-              src="/images/machine-branded.webp"
-              alt="Smart H₂O branded water-refill vending machine with PURE, SAFE, AFFORDABLE and SUSTAINABLE panel"
-              width={760}
-              height={1294}
-              loading="lazy"
-              sizes="(min-width: 1024px) 32vw, 70vw"
-              srcSet="/images/machine-branded-480w.webp 480w, /images/machine-branded.webp 760w"
-              className="w-[min(58vw,300px)] lg:w-auto max-w-[320px] max-h-[300px] sm:max-h-[420px] lg:max-h-[520px] h-auto object-contain"
-            />
+          {/* Official transparent machine, no box, no crop */}
+          <figure className="flex justify-center lg:sticky lg:top-24">
+            <picture>
+              <source srcSet="/images/smart-h2o-machine.webp" type="image/webp" />
+              <img
+                src="/images/smart-h2o-machine.png"
+                alt="Smart H₂O branded water-refill vending machine with PURE, SAFE, AFFORDABLE and SUSTAINABLE panel"
+                width={618}
+                height={1154}
+                loading="lazy"
+                className="w-[min(58vw,270px)] lg:w-auto max-w-[290px] max-h-[320px] sm:max-h-[440px] lg:max-h-[540px] h-auto object-contain"
+              />
+            </picture>
           </figure>
 
           {/* Features as accordion */}
@@ -79,23 +81,6 @@ export function Vending() {
         <div className="mt-14 md:mt-20">
           <p className="mono-label text-primary">More views</p>
           <div className="snap-slider mt-4 -mx-4 px-4 sm:mx-0 sm:px-0">
-            <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
-              <div className="bg-mist rounded-2xl aspect-[3/4] flex items-center justify-center p-6">
-                <img
-                  src="/images/machine-plain.webp"
-                  alt="Unbranded Smart H₂O refill unit, front view"
-                  width={760}
-                  height={1513}
-                  loading="lazy"
-                  sizes="(min-width: 640px) 280px, 62vw"
-                  srcSet="/images/machine-plain-480w.webp 480w, /images/machine-plain.webp 760w"
-                  className="w-[72%] h-auto"
-                />
-              </div>
-              <figcaption className="mono-label mt-2.5 text-steel">
-                Plain unit
-              </figcaption>
-            </figure>
             <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
               <div className="rounded-2xl overflow-hidden aspect-[3/4]">
                 <img
@@ -147,22 +132,6 @@ export function Vending() {
             <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
               <div className="rounded-2xl overflow-hidden aspect-[3/4]">
                 <img
-                  src="/images/machine-angled.webp"
-                  alt="Branded Smart H₂O refill unit, angled profile"
-                  width={316}
-                  height={580}
-                  loading="lazy"
-                  sizes="(min-width: 640px) 280px, 62vw"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <figcaption className="mono-label mt-2.5 text-steel">
-                Angled profile
-              </figcaption>
-            </figure>
-            <figure className="w-[62vw] sm:w-[260px] md:w-[300px] lg:w-[336px] shrink-0">
-              <div className="rounded-2xl overflow-hidden aspect-[3/4]">
-                <img
                   src="/images/bottles-pair.webp"
                   alt="Smart H₂O branded reusable bottles"
                   width={540}
@@ -173,7 +142,7 @@ export function Vending() {
                 />
               </div>
               <figcaption className="mono-label mt-2.5 text-steel">
-                Own bottle — soon
+                Own bottle, coming soon
               </figcaption>
             </figure>
             <Link

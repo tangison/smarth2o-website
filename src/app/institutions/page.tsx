@@ -34,7 +34,7 @@ export default function InstitutionsPage() {
           title="A partnership your facilities team will not have to babysit."
           body="Servicing is scheduled, water quality is checked on a set programme, and your team has one number to call when anything needs attention."
           interest="host-machine"
-          cta="Book a site assessment"
+          cta="Book a site visit"
         />
       </main>
       <Footer />

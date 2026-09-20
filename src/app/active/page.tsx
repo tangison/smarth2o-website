@@ -8,7 +8,7 @@ import { PageHero, CtaBand } from "@/components/site/page-hero";
 export const metadata: Metadata = {
   title: "Smart H₂O Active",
   description:
-    "Smart H₂O Active bottles and hydration accessories. Hydrate. Perform. Recover. Ask about branded bottles for your institution, gym or event.",
+    "Smart H₂O Active bottles and hydration accessories. A bottle you keep refilling. Ask about branded bottles for your institution, gym or event.",
   alternates: { canonical: "/active" },
 };
 

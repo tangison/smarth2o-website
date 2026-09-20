@@ -33,7 +33,7 @@ async function ensureSchema() {
 }
 
 const INTEREST_LABELS: Record<string, string> = {
-  "site-assessment": "Request a site assessment",
+  "site-assessment": "Book a site visit",
   "host-machine": "Host a machine",
   advertising: "Advertise on machine screens",
   general: "General enquiry",

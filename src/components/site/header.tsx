@@ -252,30 +252,16 @@ export function Header() {
             aria-label="Smart H₂O, home"
             className="flex items-center rounded-full focus-visible:outline-2 focus-visible:outline-ring"
           >
-            <span className={cn("relative block w-[122px]", scrolled ? "h-[34px]" : "h-[37px]")}>
+            <span className={cn("block w-[129px]", scrolled ? "h-[34px]" : "h-[37px]")}>
               <img
-                src="/images/logo-horizontal-480w.webp"
+                src="/images/svg/smart-h2o-logo-horizontal.svg"
                 alt="Smart H₂O"
-                width={1724}
-                height={549}
-                sizes="122px"
-                srcSet="/images/logo-horizontal-480w.webp 480w, /images/logo-horizontal-960w.webp 960w, /images/logo-horizontal.webp 1724w"
+                width={883}
+                height={253}
                 fetchPriority="high"
                 className={cn(
-                  "absolute left-0 top-0 h-full w-auto max-w-none transition-opacity duration-300",
-                  onDark ? "opacity-0" : "opacity-100"
-                )}
-              />
-              <img
-                src="/images/logo-horizontal-white-480w.webp"
-                alt=""
-                aria-hidden="true"
-                width={480}
-                height={153}
-                fetchPriority="high"
-                className={cn(
-                  "absolute left-0 top-0 h-full w-auto max-w-none transition-opacity duration-300",
-                  onDark ? "opacity-100" : "opacity-0"
+                  "h-full w-auto max-w-none transition-[filter] duration-300",
+                  onDark && "brightness-0 invert"
                 )}
               />
             </span>
@@ -348,7 +334,7 @@ export function Header() {
                   : "bg-primary text-white hover:bg-foreground"
               )}
             >
-              Request an assessment
+              Book a site visit
             </Link>
           </div>
 
@@ -401,10 +387,10 @@ export function Header() {
       >
         <div className="flex items-center justify-between px-5 h-20 border-b border-rule">
           <img
-            src="/images/logo-horizontal-480w.webp"
+            src="/images/svg/smart-h2o-logo-horizontal.svg"
             alt="Smart H₂O"
-            width={480}
-            height={153}
+            width={883}
+            height={253}
             className="h-auto w-auto max-h-9"
           />
           <button
@@ -445,7 +431,7 @@ export function Header() {
             onClick={close}
             className="block bg-primary text-white text-center text-sm font-semibold px-5 py-3.5 rounded-full hover:bg-foreground transition-colors"
           >
-            Request a site assessment
+            Book a site visit
           </Link>
           <a
             href={SITE.whatsappLink}

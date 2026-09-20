@@ -62,7 +62,7 @@ export function Institutions() {
     <section className="bg-mist">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 md:py-24">
         <h2 className="text-2xl md:text-[2rem] font-bold leading-[1.15] tracking-[-0.01em] text-primary">
-          Wherever people gather.
+          Six kinds of host&nbsp;site.
         </h2>
         <p className="mt-4 max-w-[52ch] text-[0.9375rem] leading-relaxed text-foreground/75">
           Every host site is different, but the split stays the same: you

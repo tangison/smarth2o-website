@@ -9,7 +9,7 @@ import { HowItWorks } from "@/components/site/how-it-works";
 export const metadata: Metadata = {
   title: "How It Works",
   description:
-    "Four stages from first call to first refill: site assessment, institutional agreement, installation and commissioning, then maintenance and performance monitoring by the Windhoek team.",
+    "Four stages from first call to first refill: site visit, institutional agreement, installation and commissioning, then maintenance and performance monitoring by the Windhoek team.",
   alternates: { canonical: "/how-it-works" },
 };
 
@@ -27,14 +27,14 @@ export default function HowItWorksPage() {
             </>
           }
           intro="Every deployment follows the same path, whether it is a lecture block, a clinic corridor or a shopping centre entrance. The terms are in writing before anything is installed."
-          meta="Assessment to monitoring"
+          meta="Site visit to monitoring"
         />
         <HowItWorks />
         <CtaBand
           title="Stage one is a site visit, and it starts with a message."
           body="We check water, power and foot traffic, then come back with a clear recommendation for your site."
           interest="site-assessment"
-          cta="Request a site assessment"
+          cta="Book a site visit"
         />
       </main>
       <Footer />

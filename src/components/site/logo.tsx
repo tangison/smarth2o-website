@@ -1,32 +1,34 @@
 import { cn } from "@/lib/utils";
 
 /**
- * The real Smart H₂O logo lockups, served from processed brand assets.
- * Never redraw, recolour or regenerate. Horizontal lockup in the header,
- * white reversed version for dark surfaces.
+ * The official Smart H₂O logo lockups, shipped as true SVG from the client
+ * asset package. Never redraw, stretch or recolour. Horizontal lockup in the
+ * header and wide placements, stacked lockup in the footer and square
+ * placements. On navy or any dark surface the lockup renders solid white
+ * with the approved filter: brightness(0) invert(1). On white or light
+ * surfaces it keeps its original colours.
  */
 export function Logo({
   className,
   light = false,
-  width = 148,
+  stacked = false,
   priority = false,
 }: {
   className?: string;
   light?: boolean;
-  width?: number;
+  stacked?: boolean;
   priority?: boolean;
 }) {
-  const src = light ? "/images/logo-horizontal-white.webp" : "/images/logo-horizontal.webp";
-  // trimmed masters: 1100x259 (both variants, same aspect)
-  const dims = { w: 1100, h: 259 };
-  const height = Math.round(width * (dims.h / dims.w));
+  const src = stacked
+    ? "/images/svg/smart-h2o-logo-stacked.svg"
+    : "/images/svg/smart-h2o-logo-horizontal.svg";
   return (
     <img
       src={src}
       alt="Smart H₂O"
-      width={width}
-      height={height}
-      className={cn("h-auto w-auto", className)}
+      width={stacked ? 820 : 883}
+      height={stacked ? 646 : 253}
+      className={cn("h-auto w-auto", light && "brightness-0 invert", className)}
       {...(priority ? { fetchPriority: "high" as const } : {})}
     />
   );

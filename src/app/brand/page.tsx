@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DocShell, DocH2, DocP } from "@/components/site/doc-shell";
+import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -19,12 +20,10 @@ const COLORS = [
 ];
 
 const LOCKUPS = [
-  { src: "/images/logo-horizontal.webp", alt: "Smart H₂O horizontal primary logo", caption: "Horizontal lockup, preferred master", dark: false },
-  { src: "/images/logo-primary.webp", alt: "Smart H₂O stacked square logo", caption: "Stacked lockup, square contexts", dark: false },
-  { src: "/images/logo-mark.webp", alt: "Smart H₂O brand mark", caption: "Brand mark, icon contexts", dark: false },
-  { src: "/images/svg/smart-h2o-logo-mark-flat.svg", alt: "Smart H₂O flat mark as scalable vector", caption: "Flat mark, true SVG — navy", dark: false },
-  { src: "/images/logo-horizontal-white.webp", alt: "Smart H₂O horizontal logo, white reversed", caption: "White reversed, dark backgrounds only", dark: true },
-  { src: "/images/svg/smart-h2o-logo-mark-flat-white.svg", alt: "Smart H₂O flat mark in white as scalable vector", caption: "Flat mark, true SVG — white", dark: true },
+  { src: "/images/svg/smart-h2o-logo-horizontal.svg", alt: "Smart H₂O horizontal logo as scalable vector", caption: "Horizontal lockup, header and wide placements", dark: false },
+  { src: "/images/svg/smart-h2o-logo-stacked.svg", alt: "Smart H₂O stacked logo as scalable vector", caption: "Stacked lockup, footer and square placements", dark: false },
+  { src: "/images/svg/smart-h2o-logo-horizontal.svg", alt: "Smart H₂O horizontal logo rendered solid white on navy", caption: "Horizontal lockup, solid white on navy", dark: true },
+  { src: "/images/svg/smart-h2o-logo-stacked.svg", alt: "Smart H₂O stacked logo rendered solid white on navy", caption: "Stacked lockup, solid white on navy", dark: true },
 ];
 
 export default function BrandPage() {
@@ -44,16 +43,17 @@ export default function BrandPage() {
 
       <DocH2>Logo</DocH2>
       <DocP>
-        The horizontal lockup is the preferred master for the website header,
-        documents and signage. The stacked lockup suits square contexts and
-        social profiles. The standalone mark carries the brand where space is
-        tight. White reversed versions appear only on navy or dark
-        backgrounds, never on white.
+        The horizontal lockup is the master for the website header, documents
+        and signage. The stacked lockup serves the footer and square contexts.
+        Both ship as true SVG. On navy or any dark background the lockup
+        renders solid white with filter: brightness(0) invert(1). On white or
+        light backgrounds it keeps its original colours. No other recolouring
+        exists.
       </DocP>
       <div className="mt-6 grid gap-px bg-rule border border-rule rounded-lg overflow-hidden sm:grid-cols-2">
         {LOCKUPS.map((l) => (
           <figure
-            key={l.src}
+            key={l.caption}
             className={
               l.dark
                 ? "bg-deep p-8 flex flex-col items-center justify-center gap-4"
@@ -63,7 +63,10 @@ export default function BrandPage() {
             <img
               src={l.src}
               alt={l.alt}
-              className={l.dark ? "w-[min(70%,240px)] h-auto" : "w-[min(70%,220px)] h-auto"}
+              className={cn(
+                "w-[min(70%,240px)] h-auto",
+                l.dark && "brightness-0 invert"
+              )}
               loading="lazy"
             />
             <figcaption className="mono-label text-steel text-center">
@@ -130,7 +133,7 @@ export default function BrandPage() {
         For logo files and usage questions, contact{" "}
         <a
           href={`mailto:${SITE.email}`}
-          className="text-primary underline decoration-accent underline-offset-2 hover:decoration-2 transition-all font-medium"
+          className="text-primary underline decoration-accent underline-offset-2 hover:decoration-2 transition-colors font-medium"
         >
           {SITE.email}
         </a>
