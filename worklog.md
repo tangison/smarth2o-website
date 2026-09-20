@@ -21,3 +21,24 @@ Stage Summary:
 - Client did NOT provide real phone/WhatsApp/email — placeholders used and documented in DEPLOYMENT-GUIDE.md.
 - Credentials were shared in chat by the user — advised to change NamHost password; did NOT use credentials (by design: DNS guide written instead).
 - Key decisions: single-page anchor nav (only `/` route user-visible in sandbox), AI-generated core product imagery to avoid competitor branding/watermarks, no unverified health claims per client instruction.
+
+---
+Task ID: 2
+Agent: Super Z (main agent)
+Task: Multi-page rebuild, editorial upgrade (Collins bar), real asset integration, UX/SEO/audit passes, contact policy enforcement, email/SMTP pipeline.
+
+Work Log:
+- Split single-page site into 9 routes (/, /vending, /institutions, /advertising, /how-it-works, /quality, /active, /about, /contact) + existing legal pages; unique meta/canonical per page; sitemap now 12 URLs.
+- Design: pill (round) buttons and controls site-wide per client brief; editorial page headers; hairline-ruled link index on home; six-tab institutions (added Government, Gyms & sport).
+- Hero: waterfall video loop (10MB source cropped to remove bottom-right watermark, re-encoded 1.3MB MP4/H264 + poster), Deep Water wash + teal tie, machine cutout height-driven so it never crops at the fold (blind-critic fix).
+- UX: quick-nav search ("$", "/" or Cmd/Ctrl+K, dependency-free), scroll-to-top, loading skeleton, polished 404/500 with page links and pill CTAs, ?interest= preselection for enquiry form (display state decoupled from RHF watch).
+- Contact policy: WhatsApp +264 81 347 4653 used ONLY in wa.me links (never printed as text); email info@smarth2o.com.na confirmed; future divisions reduced to one footer/contact teaser line per owner decision.
+- Enquiry pipeline: POST /api/enquiries now emails each enquiry to the business inbox via nodemailer SMTP (env SMTP_HOST/PORT/USER/PASS/ENQUIRY_TO), SQLite kept as best-effort backup; verified success JSON both with and without SMTP configured.
+- Assets: logos re-exported from brand masters (trimmed, optimized); og-image recomposed (200KB, navy + cutout + white logo); machine-factory context photos from originals; machine cutouts kept from the previous clean keyed versions (package "transparent" webp had a baked black background; flood-fill keying attempt leaked into the screen, so git versions restored).
+- Audits: blind fresh-context critic vs wearecollins.com at same viewports picked our hero on craft; hallmark anti-slop pass clean; webmaster checklist green (see SmartH2O-Audit-Report.md); eslint clean; next build clean (16 routes); E2E verified in browser (desktop+mobile, search, menu, form submit, API 201, 404 works).
+- SEO: LocalBusiness + Organization JSON-LD (telephone removed per contact policy), geo meta NA-KH Windhoek, OG/Twitter from recomposed image.
+
+Stage Summary:
+- Live on smarth2o.com.na via Vercel auto-deploy from main; all 14 routes return 200, 404 correct.
+- Owner actions outstanding: create info@ mailbox + DKIM/DMARC in NamHost cPanel (guide delivered), add SMTP env vars in Vercel, submit sitemap in Search Console.
+- 8-page A4 company profile delivered separately (HTML→PDF, brand-locked design system).
