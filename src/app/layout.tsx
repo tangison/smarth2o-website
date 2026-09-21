@@ -86,6 +86,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "HQ8HfjKr8KBMBEqZzeLoq_fnfcbLzkSjUhW6JAijQwM",
+  },
   other: {
     "geo.region": "NA-KH",
     "geo.placename": "Windhoek",
