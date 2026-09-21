@@ -9,9 +9,9 @@ export function Footer() {
   return (
     <footer className="bg-deep text-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Stacked lockup, solid white on Deep Water */}
+        {/* Client-issued white stacked lockup, straight on Deep Water */}
         <div className="pt-14 md:pt-20 pb-10 md:pb-14 border-b border-white/12">
-          <Logo light stacked className="w-full max-w-[min(100%,380px)]" />
+          <Logo white className="w-full max-w-[min(100%,380px)]" />
         </div>
 
         {/* Minimal link rows */}
