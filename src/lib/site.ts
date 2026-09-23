@@ -13,9 +13,9 @@ export const SITE = {
   domain: "smarth2o.com.na",
   url: "https://smarth2o.com.na",
   tagline: "Water where people are.",
-  whatsapp: "+264 81 347 4653",
+  whatsapp: "+264 81 125 4445",
   whatsappLink:
-    "https://wa.me/264813474653?text=Hello%20Smart%20H2O%2C%20I%20would%20like%20to%20find%20out%20more%20about%20your%20water%20refill%20solutions.",
+    "https://wa.me/264811254445?text=Hello%20Smart%20H2O%2C%20I%20would%20like%20to%20find%20out%20more%20about%20your%20water%20refill%20solutions.",
   email: "info@smarth2o.com.na",
   location: "Windhoek, Namibia",
   // One allowed nod to what is coming, kept out of the main offer.
